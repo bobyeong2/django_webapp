@@ -1,6 +1,5 @@
-from http.client import FORBIDDEN
 from django.shortcuts import render
-from django.http import HttpResponseRedirect,HttpResponseForbidden
+from django.http import HttpResponseRedirect
 from django.urls import reverse, reverse_lazy
 from accountapp.models import HelloWorld
 from django.views.generic import CreateView,DetailView,UpdateView,DeleteView
