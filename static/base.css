@@ -1,0 +1,18 @@
+
+.django_font {
+    font-family: 'Dosis', sans-serif;
+}
+
+.django_header {
+    text-align: center; 
+    margin-top: 2rem;
+}
+
+.django_footer_button {
+    font-size: 0.7rem;
+}
+
+.django_footer {
+    text-align: center; 
+    margin-top: 2rem;
+}
