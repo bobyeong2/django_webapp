@@ -1,6 +1,7 @@
 
 .django_font {
     font-family: 'Dosis', sans-serif;
+    font-size: 1.5rem;
 }
 
 .django_header {
@@ -9,10 +10,16 @@
 }
 
 .django_footer_button {
-    font-size: 0.7rem;
+    font-size: 1.3rem;
 }
 
 .django_footer {
     text-align: center; 
     margin-top: 2rem;
+}
+
+.django_loginform {
+    text-align: center; 
+    max-width: 500px; 
+    margin:2rem auto
 }
