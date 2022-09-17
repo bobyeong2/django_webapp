@@ -160,3 +160,7 @@ cython_debug/
 #.idea/
 
 .env
+
+# account profile image를 저장하는 공간이라 ignore하였음.
+
+media/
