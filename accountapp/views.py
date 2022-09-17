@@ -1,7 +1,10 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-
+from django.http import HttpResponseRedirect
+from django.urls import reverse, reverse_lazy
 from accountapp.models import HelloWorld
+from django.views.generic import CreateView
+from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm
 # Create your views here.
 
 def hello_world(request):
@@ -11,9 +14,19 @@ def hello_world(request):
         temp = request.POST.get('hello_world_input')
         new_hello_world = HelloWorld()
         new_hello_world.text = temp
+        hello_world_list = HelloWorld.objects.all()
         new_hello_world.save()
 
-        return render(request, 'accountapp/helloworld.html',context={'hello_world_output':new_hello_world})
+
+        return HttpResponseRedirect(reverse('accountapp:hello_world'))
 
     else :
-        return render(request, 'accountapp/helloworld.html',context={'text':'get Method'})
+        hello_world_list = HelloWorld.objects.all()
+        return render(request, 'accountapp/helloworld.html',context={'hello_world_list':hello_world_list})
+
+
+class AccountCreateView(CreateView):
+    model = User
+    form_class = UserCreationForm
+    success_url: reverse_lazy('accountapp:hello_world')
+    template_name = 'accountapp/create.html'
