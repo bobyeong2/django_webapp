@@ -7,6 +7,10 @@
 
     </div>
     <div class="django_font">
+
+        <a href="{% url 'articleapp:list'%}">
+            <span>Articles</span>
+        </a>
         {% if not user.is_authenticated%}
         <a href="{% url 'accountapp:login'%}">
             <span>Login</span>
