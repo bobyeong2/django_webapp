@@ -9,7 +9,7 @@
             </p>
             
             {% if target_user.profile %}
-            <img src="{{target_user.profile.image.url}}" alt="" style="height: 15rem; width: 15rem; border-radius: 10rem; margin-bottom: 2rem;">
+            <img src="{{target_user.profile.image.url}}" alt="" style="height: 15rem; width: 15rem; border-radius: 10rem; margin-bottom: 2rem; object-fit: cover;">
 
             <div>
                 <h5>{{target_user.profile.nickname}}</h5>
