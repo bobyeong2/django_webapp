@@ -5,7 +5,7 @@
 <style>
     .container div {
         width: 250px;
-        background-color: antiquewhite;
+        background-color: white;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -18,14 +18,24 @@
     }
 
 </style>
-
-    <div class="container">
-        <div>
-            <img src="https://picsum.photos/200/300">
+    {% if article_list %}
+        <div class="container">
+        {% for article in article_list %}
+            <a href="{% url 'articleapp:detail' pk=article.pk %}">
+                {% include 'snippets/card.html' with article=article %}
+            </a>
+        {% endfor %}
         </div>
 
+        <script src="{% static 'js/magicgrid.js' %}"></script>
+    {% else %}
+    <div class="text-center">
+        <h1> No Artics Yet- </h1>
     </div>
-    
+    {% endif %}
+
+    {% include 'snippets/pagination.html' with page_obj=page_obj %}
+
     <div style="text-align: center;">
         <a href="{% url 'articleapp:create' %}" class="btn btn-dark rounded-pill col-3 mt-3 mb-3">
             Create Article
@@ -33,6 +43,6 @@
     </div>
 
 
-<script src="{% static 'js/magicgrid.js' %}"></script>
+
 
 {% endblock %}
