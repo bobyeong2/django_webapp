@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     "articleapp",
     "commentapp",
     "projectapp",
+    "subscriptionapp",
     # django-bootstrap5
     "django_bootstrap5",
 ]

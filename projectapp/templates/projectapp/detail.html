@@ -2,7 +2,7 @@
 
 {% block content %}
 
-    <div style="text-align: center; max-width: 700px; margin: 4rem auto;">
+    <div style="text-align: center; max-width: 700px; margin: 4rem auto 1.5rem auto;">
         <div>
             <hr>
             <img style="width: 100; border-radius: 1rem; margin: 2rem 0;"  \
@@ -10,7 +10,26 @@
             <h1> {{target_project.title}} </h1>
             <h4> {{target_project.description}} </h3>
         </div>
+
+        {% if user.is_authenticated %}
+            {% if not subscription %}
+            <div>
+                <a href="{% url 'subscriptionapp:subscription'%}?project_pk={{target_project.pk}}">
+                    Subscribe
+                </a>
+            </div>
+
+            {% else %}
+            <div>
+                <a href="{% url 'subscriptionapp:subscription'%}?project_pk={{target_project.pk}}">
+                    UnSubscribe
+                </a>
+            </div>
+            {% endif %}
+        {% endif %}
         
-            
+        <div>
+            {% include 'snippets/list_project.html' with article_list=object_list %}
+        </div>
     </div>
 {% endblock %}
