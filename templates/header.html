@@ -16,6 +16,10 @@
             <span>Project</span>
         </a>
 
+        <a class="header_nav_element" href="{% url 'subscriptionapp:list'%}">
+            <span>subscription</span>
+        </a>
+
         {% if not user.is_authenticated %}
         <a class="header_nav_element" href="{% url 'accountapp:login'%}?next={{ request.path }}">
             <span>Login</span>
