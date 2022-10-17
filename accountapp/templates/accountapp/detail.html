@@ -2,71 +2,66 @@
 
 {% block content %}
 
+<style>
+    div {
+        text-align: center; 
+        max-width: 500px; 
+        margin: 4rem auto;
+    }
+    img {
+        height: 15rem; 
+        width: 15rem;
+        border-radius: 10rem;
+        margin-bottom: 2rem; 
+        object-fit: cover;
+    }
+
+    .material-icons{
+        text-decoration: none;
+        box-shadow: 0 0 3px #ccc; 
+        border-radius: 10rem; 
+        padding: 1rem;
+    }
+</style>
+
     <div>
-        <div style="text-align: center; max-width: 500px; margin: 4rem auto;">
-            <p>
-                {{ target_user.date_joined}}
-            </p>
+        <div>
+            <p>{{ target_user.date_joined}}</p>
             
             {% if target_user.profile %}
-            <img src="{{target_user.profile.image.url}}" alt="" style="height: 15rem; width: 15rem; border-radius: 10rem; margin-bottom: 2rem; object-fit: cover;">
+                <img src="{{target_user.profile.image.url}}" alt="">
+                <h5>User Nickname : {{target_user.profile.nickname}}</h5>
+                <h5>State Message : {{target_user.profile.message}}</h5>
 
-            <div>
-                <h5>{{target_user.profile.nickname}}</h5>
-                <h5>{{target_user.profile.message}}</h5>
-            </div>
-            {% if target_user == user %}
-
-            <h2 style="font-family: 'nanum_anigo'">
-                <a href="{% url 'profileapp:update' pk=target_user.profile.pk %}">
-                    <h2 style="font-family: 'nanum_anigo'">
-                        Update Profile
-                    </h2>
-                </a>
-            </h2>
-
-            {% endif %}
+                {% if target_user == user %}
+                    <a class="material-icons"
+                        href="{% url 'profileapp:update' pk=target_user.profile.pk %}">
+                        edit
+                    </a>
+                {% endif %}
 
 
             {% else %}
                 {% if target_user == user %}
-                
-                <a href="{% url 'profileapp:create' %}">
-                    <h2 style="font-family: 'nanum_anigo'">
+                    <a href="{% url 'profileapp:create' %}">
                         Create Profile
-                    </h2>
-                </a>
+                    </a>
 
                 {% else %}
-
-                <h2>
-                    해당 사용자는 닉네임이 미설정 됨.
-                </h2>
-
+                    <h2>해당 사용자는 닉네임이 미설정 됨.</h2>
                 {% endif %}
             {% endif %}
 
-
-
-
             {% if target_user == user %}
-            <a href="{% url 'accountapp:update' pk=user.pk %}">
-                <p>
-                    Change Infomation User
-                </p>
-            </a>
+                <a class="material-icons" href="{% url 'accountapp:update' pk=user.pk %}">
+                    settings
+                </a>
 
-            <a href="{% url 'accountapp:delete' pk=user.pk %}">
-                <p>
-                    Quit User
-                </p>
-            </a>
+                <a class="material-icons" href="{% url 'accountapp:delete' pk=user.pk %}">
+                    delete
+                </a>
             {% endif %}
-
-            <div>
-
-                {% include 'snippets/list_project.html' with article_list=object_list %}
-            </div>
+            <div> {% include 'snippets/list_project.html' with article_list=object_list %} </div>
         </div>
     </div>
 {% endblock %}
