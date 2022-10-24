@@ -37,9 +37,8 @@ class SubscriptionListView(ListView):
     paginate_by = 5
 
     def get_queryset(self) :
+        # project에 article이 없으면 구독해도 article이 없음.
         projects = Subscription.objects.filter(user=self.request.user).values_list('project')
-        print(Subscription.objects.all())
         article_list = Article.objects.filter(project__in=projects)
-        print(projects)
 
         return article_list

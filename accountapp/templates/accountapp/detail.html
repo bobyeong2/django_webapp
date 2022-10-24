@@ -3,16 +3,16 @@
 {% block content %}
 
 <style>
-    div {
+    .account_details_div {
         text-align: center; 
         max-width: 500px; 
         margin: 4rem auto;
     }
-    img {
+    .account_details_img {
         height: 15rem; 
         width: 15rem;
         border-radius: 10rem;
-        margin-bottom: 2rem; 
+        margin: 2rem; 
         object-fit: cover;
     }
 
@@ -23,13 +23,11 @@
         padding: 1rem;
     }
 </style>
-
-    <div>
-        <div>
+        <div class="account_details_div">
             <p>{{ target_user.date_joined}}</p>
             
             {% if target_user.profile %}
-                <img src="{{target_user.profile.image.url}}" alt="">
+                <img class="account_details_img" src="{{target_user.profile.image.url}}" alt="">
                 <h5>User Nickname : {{target_user.profile.nickname}}</h5>
                 <h5>State Message : {{target_user.profile.message}}</h5>
 
@@ -63,5 +61,4 @@
             {% endif %}
             <div> {% include 'snippets/list_project.html' with article_list=object_list %} </div>
         </div>
-    </div>
 {% endblock %}

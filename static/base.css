@@ -1,4 +1,5 @@
 
+/* base style */
 .django_font {
     font-family: 'Dosis', sans-serif;
     font-size: 1.5rem;
@@ -31,12 +32,13 @@
     }
 }
 
+
+/* header nav style & link style*/
 a {
     color : black;
     text-decoration: none;
 
 }
-
 a:hover {
     color: black;
 }
@@ -49,4 +51,85 @@ a:hover {
 .header_nav_bar {
     margin: 1rem 0;
 
+}
+
+
+/* account style  */
+
+.account_style{
+    text-align: center; 
+    max-width: 500px; 
+    margin:2rem auto;
+}
+
+.account_details_div{
+    text-align: center; 
+    max-width: 500px; 
+    margin: 4rem auto;
+}
+.account_details_img{
+    height: 15rem; 
+    width: 15rem;
+    border-radius: 10rem;
+    margin: 2rem; 
+    object-fit: cover;
+}
+
+.material-icons{
+    text-decoration: none;
+    box-shadow: 0 0 3px #ccc; 
+    border-radius: 10rem; 
+    padding: 1rem;
+}
+
+/* article style */
+
+.article_style{
+    text-align: center; 
+    max-width: 500px; 
+    margin:2rem auto;
+}
+
+.article_details{
+    text-align: center; 
+    max-width: 700px; 
+    margin: 4rem;
+    padding-top: 1rem;
+}
+/* comment style */
+
+.comment_style{
+    text-align: center; 
+    max-width: 500px; 
+    margin:2rem auto;
+}
+
+.comment_details{
+    border: 1px solid ; 
+    text-align: left; 
+    padding: 2%; 
+    margin: 1rem; 
+    border-radius: 1rem; 
+    border-color: gray;
+}
+
+/* profile style */
+
+.profile_style{
+    text-align: center; 
+    max-width: 500px; 
+    margin:2rem auto;
+}
+/* project style */
+
+.project_style{
+    text-align: center; 
+    max-width: 500px; 
+    margin:2rem auto;
+}
+
+.project_details{
+    text-align: center; 
+    max-width: 700px; 
+    margin: 4rem auto 1.5rem auto;
 }
